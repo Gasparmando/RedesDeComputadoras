@@ -31,3 +31,5 @@ ip link del br-externo
 ip link del br-tapExt
 ip link del br-tap1B
 ip link del tapExt
+
+clear

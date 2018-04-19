@@ -1,4 +1,5 @@
 #!/bin/bash
+./nsclear.sh
 
 NS1="ns2.1"
 NS2="ns2.2"
@@ -75,7 +76,8 @@ ip netns exec $NS3 sysctl -w net.ipv6.conf.all.forwarding=1
 ip netns exec $NS4 sysctl -w net.ipv6.conf.all.forwarding=1	
 	
 # Levanta las interfaces de los cables
-ip netns exec $NS1 ip link set up dev tap1B			
+ip netns exec $NS1 ip link set up dev tap1B
+ip netns exec $NS1 ip link set dev tap1B mtu 1300 			
 ip netns exec $NS1 ip link set up dev tap12
 ip netns exec $NS1 ip link set up dev tap13
 ip netns exec $NS1 ip link set up dev tap14
@@ -131,13 +133,14 @@ tap53="2001:bbbb:4444:1::53"
 tap64="2001:bbbb:5555:1::64"
 tap46="2001:bbbb:5555:1::46"
 
-ip -6 addr add ${brtap1b}/64 dev br-tap1B
+
 ip -6 addr add ${br}/64 dev br-externo
 
 ip netns exec $NS1 ip -6 addr add ${tap1B}/64 dev tap1B 
 ip netns exec $NS1 ip -6 addr add ${tap12}/64 dev tap12
 ip netns exec $NS1 ip -6 addr add ${tap13}/64 dev tap13 
 ip netns exec $NS1 ip -6 addr add ${tap14}/64 dev tap14 
+ip netns exec $NS1 ip set dev tap1B mtu 1300
 
 ip netns exec $NS2 ip -6 addr add ${tap21}/64 dev tap21
 ip netns exec $NS3 ip -6 addr add ${tap31}/64 dev tap31
@@ -178,8 +181,6 @@ ip netns exec $NS4 ip -6 route add 2001:bbbb:4444:1::/64 dev tap43 via 2001:bbbb
 ip netns exec $NS5 ip -6 route add default via $tap35
 ip netns exec $NS6 ip -6 route add default via $tap46
 
-
-ip link set dev br-externo mtu 1300
 
 
 
