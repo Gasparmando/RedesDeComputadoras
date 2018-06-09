@@ -1,0 +1,22 @@
+version: '2.1'  
+
+services:
+  bind:
+    build: ./dns/.
+    environment:
+      - ROOT_PASSWORD=ubuntu
+    container_name: h2
+    volumes:
+       - ./volumes/ns_data:/data:rw
+    networks:
+      red1:
+        ipv6_address: 2001:a:a:a::2
+
+networks:
+  red1:
+    driver: "bridge"
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+         - subnet: 2001:a:a:a::/64
