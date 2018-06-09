@@ -37,4 +37,4 @@ docker exec bgp_r6_1 ip -6 route add default via 2001:bbbb:2222::12
 docker exec bgp_r7_1 ip -6 route add default via 2001:aaaa:3333::11
 docker exec bgp_r8_1 ip -6 route add default via 2001:bbbb:3333::12
 docker exec bgp_r9_1 ip -6 route add default via 2001:cccc:cccc::b
-docker exec bgp_r10_1 ip -6 route add default via 2001:cccc:1111::31
+docker exec bgp_r10_1 ip -6 route add default via 2001:cccc:1111::19

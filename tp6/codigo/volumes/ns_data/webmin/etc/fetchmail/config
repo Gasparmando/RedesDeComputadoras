@@ -1,0 +1,6 @@
+config_file=
+daemon_user=root
+pid_file=/var/run/fetchmail.pid
+max_users=400
+view_mode=0
+fetchmail_path=fetchmail
