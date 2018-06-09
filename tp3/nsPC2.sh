@@ -9,7 +9,7 @@ NS5="ns2.5"
 NS6="ns2.6"
 
 #INTERFAZ
-IFFISICA="enp9s0"
+IFFISICA="enp0s3"
 
 #Bridge Externo
 BRNAME="br-externo"
