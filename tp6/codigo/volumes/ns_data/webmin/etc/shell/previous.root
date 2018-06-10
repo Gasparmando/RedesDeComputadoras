@@ -1,0 +1,4 @@
+cd /etc/webmin
+ls
+nano miniserv.conf
+nano miniserv.conf
