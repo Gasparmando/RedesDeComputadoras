@@ -1,0 +1,12 @@
+$ttl 38400
+grupo3.redes.fcefyn.unc.edu.local.	IN	SOA	grupo3. mail.mail.com. (
+			1528690609
+			10800
+			3600
+			604800
+			38400 )
+grupo3.redes.fcefyn.unc.edu.local.	IN	NS	grupo3.
+cliente.grupo3.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:a:a:a::1
+servidor.grupo3.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:a:a:a::2
+server.grupo3.redes.fcefyn.unc.edu.local.	IN	CNAME	servidor.grupo3.redes.fcefyn.unc.edu.local.
+host.grupo3.redes.fcefyn.unc.edu.local.		IN	CNAME	cliente.grupo3.redes.fcefyn.unc.edu.local.

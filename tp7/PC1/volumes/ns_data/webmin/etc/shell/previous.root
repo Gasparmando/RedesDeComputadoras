@@ -1,0 +1,10 @@
+cd /etc/webmin
+ls
+nano miniserv.conf
+nano miniserv.conf
+cd /etc
+ls
+sudo gedit resolv.conf
+sudo pico resolv.conf
+sudo nano resolv.conf
+cat resolv.conf
