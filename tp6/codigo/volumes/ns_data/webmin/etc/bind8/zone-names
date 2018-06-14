@@ -1,6 +1,6 @@
 pidfile_config=/var/run/bind/run/named.pid /var/run/named.pid /var/run/named/named.pid /var/run/bind/run/named/named.pid
 zone_2=localhost	3	master	*	/etc/bind/db.local
-file_/etc/bind/named.conf.local=1528690604
+file_/etc/bind/named.conf.local=1528845100
 zone_5=255.in-addr.arpa	6	master	*	/etc/bind/db.255
 pidfile=/var/run/named/named.pid
 zone_4=0.in-addr.arpa	5	master	*	/etc/bind/db.0
