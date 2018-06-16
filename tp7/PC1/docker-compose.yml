@@ -1,6 +1,31 @@
 version: '2.1'
 
 services:
+
+  bind:
+    build: ./dns/.
+    environment:
+      - ROOT_PASSWORD=ubuntu
+    container_name: h2
+    volumes:
+       - ./volumes/ns_data:/data:rw
+    networks:
+      redBind:
+        ipv6_address: 2001:aaaa:1111:1111::2
+
+
+  node:
+    image: "node:8"
+    user: "node"
+    working_dir: /usr/bin/node
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./volumes:/usr/bin/node
+    expose:
+      - "8081"
+    command: "npm start"
+
   api:
     image: strapi/strapi
     environment:
@@ -76,7 +101,7 @@ services:
     networks:
       nr11:
         ipv6_address: 2001:aaaa:1111::13
-      nr11app:
+      redBind:
         ipv6_address: 2001:aaaa:1111:1111::13
   r5:
     build: ./ospf/.
@@ -161,13 +186,14 @@ networks:
       config:
         - subnet: 2001::/64
 
-  nr11app:
+  redBind:
     driver: "bridge"
     enable_ipv6: true
     ipam:
       driver: default
       config:
-        - subnet: 2001:aaaa:1111:1111::/64
+         - subnet: 2001:aaaa:1111:1111::/64
+
   nr11:
     driver: "bridge"
     enable_ipv6: true

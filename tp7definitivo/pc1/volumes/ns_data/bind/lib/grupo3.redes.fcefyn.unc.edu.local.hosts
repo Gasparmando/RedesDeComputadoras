@@ -1,0 +1,11 @@
+$ttl 38400
+grupo3.redes.fcefyn.unc.edu.local.	IN	SOA	grupo3. mail.mail.com. (
+			1528690615
+			10800
+			3600
+			604800
+			38400 )
+grupo3.redes.fcefyn.unc.edu.local.	IN	NS	grupo3.
+host1.grupo3.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:aaaa:4444::11
+host3.grupo3.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:aaaa:5555::13
+_MongoDB._tcp.mongoDb.grupo3.redes.fcefyn.unc.edu.local.	IN	SRV	1 100 27017 localhost
