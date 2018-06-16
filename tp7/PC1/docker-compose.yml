@@ -1,6 +1,37 @@
 version: '2.1'
 
 services:
+  api:
+    image: strapi/strapi
+    environment:
+      - APP_NAME=strapi-app
+      - DATABASE_CLIENT=mongo
+      - DATABASE_HOST=db
+      - DATABASE_PORT=27017
+      - DATABASE_NAME=strapi
+      - DATABASE_USERNAME=
+      - DATABASE_PASSWORD=
+      - HOST=localhost
+    ports:
+      - 1337:1337
+    volumes:
+      - ./strapi-app:/usr/src/api/strapi-app
+      - /usr/src/api/strapi-app/node_modules
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=strapi
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+    restart: always
+
+
   b1:
     build: ./bgp/.
     volumes:
@@ -45,6 +76,8 @@ services:
     networks:
       nr11:
         ipv6_address: 2001:aaaa:1111::13
+      nr11app:
+        ipv6_address: 2001:aaaa:1111:1111::13
   r5:
     build: ./ospf/.
     volumes:
@@ -127,6 +160,14 @@ networks:
       driver: default
       config:
         - subnet: 2001::/64
+
+  nr11app:
+    driver: "bridge"
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:aaaa:1111:1111::/64
   nr11:
     driver: "bridge"
     enable_ipv6: true

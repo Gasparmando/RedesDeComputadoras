@@ -1,0 +1,12 @@
+$ttl 38400
+grupo15.redes.fcefyn.unc.edu.local.	IN	SOA	grupo15. grupo15.email.com. (
+			1527731133
+			10800
+			3600
+			604800
+			38400 )
+grupo15.redes.fcefyn.unc.edu.local.	IN	NS	grupo15.
+cliente.grupo15.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:a:a:a::1
+servidor.grupo15.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:a:a:a::2
+server.grupo15.redes.fcefyn.unc.edu.local.	IN	CNAME	servidor.grupo15.redes.fcefyn.unc.edu.local.
+host.grupo15.redes.fcefyn.unc.edu.local.	IN	CNAME	cliente.grupo15.redes.fcefyn.unc.edu.local.
