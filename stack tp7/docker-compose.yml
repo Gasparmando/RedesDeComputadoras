@@ -33,4 +33,7 @@ services:
    container_name: nginx1
    ports:
      - 8082:80
+    volumes:
+      - ./nginx/data/www:/usr/share/nginx/html:rw
+      - ./nginx/data/nginx/conf:/etc/nginx:rw
 

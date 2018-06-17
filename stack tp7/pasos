@@ -12,7 +12,19 @@ Hacer el dockerfile de nginx
 Modificar el docker-compose.yml
 El renglon de "ports" se usa para mapear el puerto 80 al 8082
 Verificar que nginx esta corriendo ingresando a localhost:8082
-
+Hacer persistentes los cambios en nginx usando dos volumenes en el docker-compose.yml
+(Todo lo que es configurar el container de nginx lo estoy sacando de aca:
+https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/
+)
+(este repositorio usan un container de nginx. Sirve como para ejemplo del dockerfile
+https://github.com/mailsquad/website/blob/master/Dockerfile
+)
+(ejemplo proxy reverso con nginx y docker-compose
+http://www.bogotobogo.com/DevOps/Docker/Docker-Compose-Nginx-Reverse-Proxy-Multiple-Containers.php
+)
+(ejemplo docker-compose.yml con nginx
+https://github.com/libresh/compose-nginx/blob/master/docker-compose.yml
+)
 
 
 
