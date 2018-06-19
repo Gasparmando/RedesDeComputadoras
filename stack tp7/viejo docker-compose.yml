@@ -1,14 +1,5 @@
 version: "2"
 services:
-
-  nginx:
-   image: nginx
-   container_name: nginx1
-   ports:
-     - 8082:80
-   volumes:
-     - ./nginx/data:/etc/nginx/
-     - ./nginx/data/nginx.conf:/etc/nginx/nginx.conf:ro
   node:
     image: "node:8"
     user: "node"
@@ -22,8 +13,6 @@ services:
     command: "npm start"
 
   mongo:
-    depends_on:
-        - nginx   
     image: mongo
     restart: always
     environment:
@@ -31,8 +20,6 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
 
   mongo-express:
-    depends_on:
-        - nginx
     image: mongo-express
     restart: always
     ports:
@@ -41,3 +28,8 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
  
+  nginx:
+   build: ./nginx/.
+   container_name: nginx1
+   ports:
+     - 8082:80

@@ -2,6 +2,10 @@ sudo docker pull mongo
 sudo docker pull nginx
 sudo docker pull node
 sudo docker pull strapi/strapi
+(antes de isnstalar: 6,9Gb libres)
+(despues de hacer pull 5,1)
+(despues de primer ejecucion 4,5)
+
 
 Desde el hub de docker se pueden consultar las imagenes y su documentacion.
 
@@ -27,4 +31,13 @@ https://github.com/libresh/compose-nginx/blob/master/docker-compose.yml
 )
 
 
+COPY ./data/www/ /usr/share/nginx/html/
+
+   volumes:
+     - ./nginx/data/www:/usr/share/nginx/html:rw
+     - ./nginx/data/nginx/conf:/etc/nginx:rw
+
+   build: ./nginx/.
+
+COPY ./nginx.conf /etc/nginx/nginx.conf
 
