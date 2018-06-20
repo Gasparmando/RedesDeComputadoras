@@ -6,6 +6,7 @@ docker exec pc1_r5_1 ip -6 route delete default
 docker exec pc1_r7_1 ip -6 route delete default
 
 docker exec pc1_b1_1 ip -6 route delete default
+docker exec pc1_b1_1 ip -6 route add default via 2001::b
 
 docker exec pc1_h11_1 ip -6 route delete default
 docker exec pc1_h13_1 ip -6 route delete default

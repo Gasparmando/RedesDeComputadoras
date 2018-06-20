@@ -1,8 +1,14 @@
 version: '2.1'
 
 services:
-  api:
-    image: strapi/strapi
+  nginx:
+    image: nginx
+    ports:
+     - "8080:80"
+    restart: always
+      
+  strapi:
+    image: strapi/strapi:latest
     environment:
       - APP_NAME=strapi-app
       - DATABASE_CLIENT=mongo
@@ -16,10 +22,12 @@ services:
       - 1337:1337
     volumes:
       - ./strapi-app:/usr/src/api/strapi-app
-      - /usr/src/api/strapi-app/node_modules
+      #- /usr/src/api/strapi-app/node_modules
     depends_on:
       - db
     restart: always
+
+
 
   db:
     image: mongo
