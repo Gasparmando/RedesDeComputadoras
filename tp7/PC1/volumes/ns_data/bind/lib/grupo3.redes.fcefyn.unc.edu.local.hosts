@@ -1,0 +1,20 @@
+$ttl 38400
+grupo3.redes.fcefyn.unc.edu.local.	IN	SOA	grupo3. mail.mail.com. (
+			1528690617
+			10800
+			3600
+			604800
+			38400 )
+grupo3.redes.fcefyn.unc.edu.local.	IN	NS	grupo3.
+h11.grupo3.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:aaaa:4444::11
+b1.grupo3.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:aaaa:2222::11
+r3.grupo3.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:aaaa:1111::13
+r5.grupo3.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:aaaa:4444::15
+h13.grupo3.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:aaaa:5555::12
+r7.grupo3.redes.fcefyn.unc.edu.local.	IN	AAAA	2001:aaaa:5555::17
+1.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.4.4.4.4.a.a.a.a.1.0.0.2.ip6.arpa. 1h IN PTR h11.grupo3.redes.fcefyn.unc.edu.local.
+1.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2.2.2.2.a.a.a.a.1.0.0.2.ip6.arpa. 1h IN PTR b1.grupo3.redes.fcefyn.unc.edu.local.
+3.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.a.a.a.a.1.0.0.2.ip6.arpa. 1h IN PTR r3.grupo3.redes.fcefyn.unc.edu.local.
+5.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.4.4.4.4.a.a.a.a.1.0.0.2.ip6.arpa. 1h IN PTR r5.grupo3.redes.fcefyn.unc.edu.local.
+2.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.5.5.5.5.a.a.a.a.1.0.0.2.ip6.arpa. 1h IN PTR h13.grupo3.redes.fcefyn.unc.edu.local.
+7.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.5.5.5.5.a.a.a.a.1.0.0.2.ip6.arpa. 1h IN PTR r7.grupo3.redes.fcefyn.unc.edu.local.
