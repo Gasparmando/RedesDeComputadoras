@@ -1,0 +1,150 @@
+version: '2.1'
+
+services:
+  b1:
+    build: ./bgp/.
+    volumes:
+      - ./volumes/bgp/b1/zebra.conf:/etc/quagga/zebra.conf:ro
+      - ./volumes/bgp/b1/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
+      - ./volumes/bgp/b1/bgpd.conf:/etc/quagga/bgpd.conf:ro
+      - ./volumes/bgp/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+    image: bgp:20180426
+    privileged: true
+    ports:
+      #admin
+      - 10101:2601
+      #ospf
+      - 10102:2604      
+      #ospf ipv6
+      - 10103:2606
+      #bgp
+      - 10104:2605
+    networks:
+      net0:
+        ipv6_address: 2001::a
+      net1:
+        ipv6_address: 2001:aaaa:1111::11
+      net2:
+        ipv6_address: 2001:aaaa:2222::11
+      net3:
+        ipv6_address: 2001:aaaa:3333::11
+
+  r3:
+    build: ./ospf/.
+    volumes:
+      - ./volumes/ospf/r3/zebra.conf:/etc/quagga/zebra.conf:ro
+      - ./volumes/ospf/r3/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+    image: ospf:20180419
+    privileged: true
+    ports:
+      #admin
+      - 10311:2601
+      #ospf ipv6
+      - 10313:2606
+    networks:
+      net1:
+        ipv6_address: 2001:aaaa:1111::13
+      net7:
+        ipv6_address: 2001:aaaa:7777::13
+  r5:
+    build: ./ospf/.
+    volumes:
+      - ./volumes/ospf/r5/zebra.conf:/etc/quagga/zebra.conf:ro
+      - ./volumes/ospf/r5/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+    image: ospf:20180419
+    privileged: true
+    ports:
+      #admin
+      - 10511:2601
+      #ospf ipv6
+      - 10513:2606
+    networks:
+      net2:
+        ipv6_address: 2001:aaaa:2222::15
+      net4:
+        ipv6_address: 2001:aaaa:4444::15
+      net6:
+        ipv6_address: 2001:aaaa:6666::15
+  r7:
+    build: ./ospf/.
+    volumes:
+      - ./volumes/ospf/r7/zebra.conf:/etc/quagga/zebra.conf:ro
+      - ./volumes/ospf/r7/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+    image: ospf:20180419
+    privileged: true
+    ports:
+      #admin
+      - 10711:2601
+      #ospf ipv6
+      - 10713:2606
+    networks:
+      net3:
+        ipv6_address: 2001:aaaa:3333::17
+      net5:
+        ipv6_address: 2001:aaaa:5555::17
+      net6:
+        ipv6_address: 2001:aaaa:6666::17
+
+  h11:
+    build: ./ospf/.
+    volumes:
+      - ./volumes/ospf/h11/zebra.conf:/etc/quagga/zebra.conf:ro
+      - ./volumes/ospf/h11/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+    image: ospf:20180419
+    privileged: true
+    ports:
+      #admin
+      - 11111:2601
+      #ospf ipv6
+      - 11113:2606
+    networks:
+      net4:
+        ipv6_address: 2001:aaaa:4444::11
+  h13:
+    build: ./ospf/.
+    volumes:
+      - ./volumes/ospf/h13/zebra.conf:/etc/quagga/zebra.conf:ro
+      - ./volumes/ospf/h13/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+    image: ospf:20180419
+    privileged: true
+    ports:
+      #admin
+      - 11311:2601
+      #ospf ipv6
+      - 11313:2606
+    networks:
+      net5:
+        ipv6_address: 2001:aaaa:5555::13
+        
+networks:
+  net0:
+    external:
+      name: net0
+  net1:
+    external:
+      name: net1
+  net2:
+    external:
+      name: net2
+  net3:
+    external:
+      name: net3
+  net4:
+    external:
+      name: net4
+  net5:
+    external:
+      name: net5
+  net6:
+    external:
+      name: net6
+  net7:
+    external:
+      name: net7
+
+

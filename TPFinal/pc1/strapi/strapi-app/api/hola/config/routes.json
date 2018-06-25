@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/hola",
+      "handler": "Hola.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/hola/count",
+      "handler": "Hola.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/hola/:_id",
+      "handler": "Hola.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/hola",
+      "handler": "Hola.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/hola/:_id",
+      "handler": "Hola.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/hola/:_id",
+      "handler": "Hola.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
