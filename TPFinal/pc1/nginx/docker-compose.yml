@@ -1,0 +1,29 @@
+version: "2.1"
+
+services:
+  web:
+    image: nginx
+    privileged: true
+    volumes:
+     - ./Config.template:/etc/nginx/nginx.conf
+     - ./ssl:/etc/nginx/ssl
+    ports:
+     - "80:80"
+     - "443:443"
+    #environment:
+       #- NGINX_HOST=2001:a:a:a::10
+       #- NGINX_PORT=80
+    #command: /bin/bash -c "envsubst < /etc/nginx/conf.d/Config.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    networks:
+        net0:
+          ipv6_address: 2001:a:1::2
+        red2:
+          ipv6_address: 2001:a:2::2
+
+networks:
+  net0:
+    external:
+      name: net0
+  red2:
+    external:
+      name: red2 
