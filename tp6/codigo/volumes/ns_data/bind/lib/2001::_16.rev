@@ -1,0 +1,21 @@
+;
+; Zone file built with the IPv6 Reverse DNS zone builder
+; http://rdns6.com/
+;
+$TTL 	3600 ; Default TTL
+@	IN	SOA	grupo3.redes.fcefyn.unc.edu.local.	pepe.com (
+	2018062601	; serial
+	1h		; slave refresh interval
+	15m		; slave retry interval
+	1w		; slave copy expire time
+	1h		; NXDOMAIN cache time
+	)
+
+;
+; domain name servers
+;
+@	IN	NS	grupo3.redes.fcefyn.unc.edu.local.
+
+
+; IPv6 PTR entries
+1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.a.0.0.0.a.0.0.0.a.0.0.0.1.0.0.2.ip6.arpa.    IN    PTR    cliente.grupo3.redes.fcefyn.unc.edu.local.

@@ -10,3 +10,7 @@ zone "grupo3.redes.fcefyn.unc.edu.local" {
 	type master;
 	file "/var/lib/bind/grupo3.redes.fcefyn.unc.edu.local.hosts";
 	};
+zone "1.0.0.2.ip6.arpa" {
+	type master;
+	file "/var/lib/bind/2001::_16.rev";
+	};
