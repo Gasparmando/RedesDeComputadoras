@@ -1,0 +1,21 @@
+;
+; Zone file built with the IPv6 Reverse DNS zone builder
+; http://rdns6.com/
+;
+$TTL 1h	; Default TTL
+@	IN	SOA	grupo3.redes.fcefyn.unc.edu.local.	admin.example.com. (
+	2018062601	; serial
+	1h		; slave refresh interval
+	15m		; slave retry interval
+	1w		; slave copy expire time
+	1h		; NXDOMAIN cache time
+	)
+
+;
+; domain name servers
+;
+@	IN	NS	grupo3.redes.fcefyn.unc.edu.local.
+
+
+; IPv6 PTR entries
+1.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.4.4.4.4.a.a.a.a.1.0.0.2.ip6.arpa.    IN    PTR    h11.grupo3.redes.fcefyn.unc.edu.local.
