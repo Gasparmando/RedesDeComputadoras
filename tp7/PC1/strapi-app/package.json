@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "lodash": "4.x.x",
-    "strapi": "3.0.0-alpha.12",
-    "strapi-mongoose": "3.0.0-alpha.12"
+    "strapi": "3.0.0-alpha.12.4",
+    "strapi-mongoose": "3.0.0-alpha.12.4"
   },
   "author": {
     "name": "A Strapi developer",
@@ -36,11 +36,11 @@
     }
   ],
   "strapi": {
-    "uuid": "8c3bb093-6ea0-4142-8c06-07c46097e182"
+    "uuid": "abbf1396-3a9a-4767-a8a0-4f70ad04a85c"
   },
   "engines": {
-    "node": ">= 7.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 9.0.0",
+    "npm": ">= 5.0.0"
   },
   "license": "MIT"
 }

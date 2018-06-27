@@ -1,0 +1,19 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "inventariodeservidores",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "Servidor": {
+      "type": "string"
+    },
+    "SO": {
+      "type": "string"
+    }
+  }
+}

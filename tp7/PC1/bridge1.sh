@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BRIDGE1= ""
+BRIDGE1="br-f80374bff4b4"
 
 ip addr flush dev enp0s3
 ip link set enp0s3 down

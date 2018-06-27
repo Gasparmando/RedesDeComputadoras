@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/inventariodeservidores",
+      "handler": "Inventariodeservidores.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/inventariodeservidores/count",
+      "handler": "Inventariodeservidores.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/inventariodeservidores/:_id",
+      "handler": "Inventariodeservidores.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/inventariodeservidores",
+      "handler": "Inventariodeservidores.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/inventariodeservidores/:_id",
+      "handler": "Inventariodeservidores.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/inventariodeservidores/:_id",
+      "handler": "Inventariodeservidores.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

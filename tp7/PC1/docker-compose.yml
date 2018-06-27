@@ -1,14 +1,45 @@
 version: '2.1'
 
 services:
-  nginx:
-    image: nginx
-    ports:
-     - "8080:80"
+
+  squid:
+    image: sameersbn/squid:3.3.8-23
+    privileged: true
+    volumes:
+    - ./squid/cache:/var/spool/squid3
+    - ./squid/squid.conf:/etc/squid3/squid.conf
     restart: always
+    networks:
+      nr17:
+        ipv6_address: 2001:aaaa:7777::23
+
+
+  bind:
+    build: ./dns/.
+    environment:
+      - ROOT_PASSWORD=ubuntu
+    container_name: bind_container
+    volumes:
+       - ./volumes/ns_data:/data:rw
+    networks:
+      nr11app:
+        ipv6_address: 2001:aaaa:1111:1111::8
+
+  proxy-reverso:
+    image: reverseproxy
+ #   ports:
+  #   - 1337:80
+    restart: always
+    networks:
+      nr11app:
+        ipv6_address: 2001:aaaa:1111:1111::5
+      nr17:
+        ipv6_address: 2001:aaaa:7777::5
       
   strapi:
     image: strapi/strapi:latest
+    depends_on:
+      - proxy-reverso
     environment:
       - APP_NAME=strapi-app
       - DATABASE_CLIENT=mongo
@@ -26,6 +57,9 @@ services:
     depends_on:
       - db
     restart: always
+    networks:
+      nr11app:
+        ipv6_address: 2001:aaaa:1111:1111::15
 
 
 
@@ -38,6 +72,9 @@ services:
     volumes:
       - ./db:/data/db
     restart: always
+    networks:
+      nr11app:
+        ipv6_address: 2001:aaaa:1111:1111::16
 
 
   b1:
@@ -84,8 +121,8 @@ services:
     networks:
       nr11:
         ipv6_address: 2001:aaaa:1111::13
-      nr11app:
-        ipv6_address: 2001:aaaa:1111:1111::13
+      nr17:
+        ipv6_address: 2001:aaaa:7777::13
   r5:
     build: ./ospf/.
     volumes:
@@ -219,3 +256,10 @@ networks:
       config:
         - subnet: 2001:aaaa:6666::/64
 
+  nr17:
+    driver: "bridge"
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:aaaa:7777::/64
